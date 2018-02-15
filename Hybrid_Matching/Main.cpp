@@ -5,11 +5,13 @@ int main(int argc, char** argv)
 	std::vector<cv::Mat> image_list = read_images(FILENAMES);
 
 
-
 	cv::namedWindow("Test Window", CV_WINDOW_AUTOSIZE);
 	cv::imshow("Test Window", image_list[0]);
 	cv::waitKey(0);
 	cv::destroyAllWindows();
+
+	std::cout << std::get<0>(boxes_scores[0][0])[0] << std::endl;
+	system("Pause");
 	return 0;
 }
 
@@ -22,15 +24,19 @@ std::vector<cv::Mat> read_images(std::vector<std::string> filenames) {
 	// Read in images from file
 	for (std::vector<std::string>::const_iterator it = filenames.begin(); it != filenames.end(); it++) {
 		cv::Mat img = cv::imread(*it, cv::IMREAD_COLOR);
-		if (!img.data)
+		if (!img.data) {
 			std::cout << "Could not read '" << *it << "' from file. Exiting.\n";
+			system("pause");
+			exit(-1);
+		}
 		image_list.push_back(cv::imread(*it, cv::IMREAD_COLOR));
 	}
 	std::cout << "Succesfully read " << image_list.size() << " images from file.";
 	return image_list;
 }
 
-/* TODO: Parse JSON file into vector? 
-*/
+
+
+
 
 

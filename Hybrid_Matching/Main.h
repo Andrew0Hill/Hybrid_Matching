@@ -16,6 +16,7 @@
 #include "Filenames.h"
 #include "ObjectInstance.h"
 #include "FeatureImage.h"
+#include "Object_Info.h"
 
 /*Boost includes*/
 // JSON Parser to read image data in from file

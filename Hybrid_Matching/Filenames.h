@@ -98,4 +98,5 @@ static const std::vector<std::string> FILENAMES = {
 "images\\rgb\\98.jpg",
 "images\\rgb\\99.jpg" 
 };
+static const std::string JSON_FILE = "boxes_scores.json";
 #endif
